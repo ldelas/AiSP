@@ -1,0 +1,95 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct _student
+{
+	char ime[128];
+	char prezime[128];
+	int bodovi;
+
+};
+
+int CountRec(char*);
+int ReadRec(char*, struct _student*);
+
+void main(void)
+{
+	int nCount = 0;
+	int nRead = 0;
+	int maxBod = 0;
+	float relBod = 0;
+	char fname[1024] = { 0 };
+	struct _student *pniz, *sniz;
+	pniz = NULL;
+
+	printf("      Popis studenata          ");
+	printf("\r\n\t\tUnesi naziv datoteke\r\n\t\tza citanje: ");
+	scanf_s(" %s", fname, 1024);
+
+	nCount = CountRec(fname);
+
+	if (nCount <= 0)
+		printf("\r\n Datoteka %s je prazna", fname);
+	else
+	{
+		printf("\r\nU datoteci '%s' ima %d zapisa\r\n", fname, nCount);
+		pniz = (struct _student*)malloc(sizeof(struct _student) * nCount);
+		sniz = pniz;
+		maxBod = ReadRec(fname, sniz);
+
+		printf("\r\n nRbr %15s %15s %4s %5s %8s\r\n", "ime", "prezime", "bod", "max", "rel");
+		printf("\r\n");
+		nRead = 0;
+		while (nRead < nCount)
+		{
+			printf("\r\n%#2d. %15s, %15s %3d / %3d = %#6.2f", nRead + 1, sniz->ime, sniz->prezime, sniz->bodovi, maxBod, (float)sniz->bodovi * 100 / maxBod);
+			sniz++;
+			nRead++;
+		}
+		free(pniz);
+	}
+	printf("\r\n\r\n");
+
+}
+
+int CountRec(char *fname)
+{
+	FILE *dat;
+	char buff[1024] = { 0 };
+	int n = 0;
+
+	dat = fopen(fname, "r");
+	if (dat == NULL)
+		printf("greska datoteka nije pronadena");
+	else
+	{
+		while (!feof(dat))
+		{
+			fgets(buff, 1024, dat);
+			n++;
+		}
+		fclose(dat);
+	}
+	return n;
+}
+
+int ReadRec(char *fname, struct _student *S)
+{
+	FILE *dat;
+	int n = 0;
+	dat = fopen(fname, "r");
+	if (dat == NULL)
+		printf("greska nije pronadena");
+	else
+	{
+		while (!feof(dat))
+		{
+			fscanf_s(dat, "%s %s %d", S->ime, 128, S->prezime, 128, &S->bodovi);
+			if (S->bodovi > n)
+				n = S->bodovi;
+			S++;
+		}
+		fclose(dat);
+	}
+	return n;
+}
