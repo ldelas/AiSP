@@ -1,0 +1,6 @@
+﻿  Source.cpp
+c:\users\student\desktop\ais\vj2\zad2\zad2\source.cpp(28): warning C4326: return type of 'main' should be 'int' instead of 'void'
+c:\users\student\desktop\ais\vj2\zad2\zad2\source.cpp(128): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\student\desktop\ais\vj2\zad2\zad2\source.cpp(140): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\student\desktop\ais\vj2\zad2\zad2\source.cpp(147): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 3 has type 'int *'
+  zad2.vcxproj -> C:\Users\student\Desktop\AIS\VJ2\zad2\Debug\zad2.exe
