@@ -1,0 +1,8 @@
+﻿  zad3.cpp
+C:\Users\Frane\source\repos\VJ_3\zad3.cpp(55,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\Frane\source\repos\VJ_3\zad3.cpp(182,52): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\Frane\source\repos\VJ_3\zad3.cpp(196,64): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\Frane\source\repos\VJ_3\zad3.cpp(203,10): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 3 has type 'int *'
+C:\Users\Frane\source\repos\VJ_3\zad3.cpp(224,64): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\Frane\source\repos\VJ_3\zad3.cpp(298,37): warning C4101: 'tmp': unreferenced local variable
+  VJ_3.vcxproj -> C:\Users\Frane\source\repos\VJ_3\Debug\VJ_3.exe
